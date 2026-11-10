@@ -3,9 +3,7 @@ import streamlit as st
 import pandas as pd
 import joblib
 
-# ==========================================
-# PAGE CONFIG
-# ==========================================
+
 
 st.set_page_config(
     page_title="Premium Lens | InsureAI",
@@ -14,14 +12,9 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Change this whenever you want to update the conversion rate.
-# This is an illustrative rate, not a live exchange rate.
+
 USD_TO_INR = 85.0
 
-
-# ==========================================
-# CURRENCY FORMATTER
-# ==========================================
 
 def format_inr(amount):
     amount = float(amount)
@@ -41,9 +34,6 @@ def format_inr(amount):
     return f"₹{integer_part}.{decimal_part}"
 
 
-# ==========================================
-# CUSTOM CSS
-# ==========================================
 
 st.markdown("""
 <style>
@@ -277,9 +267,6 @@ except Exception as e:
     st.stop()
 
 
-# ==========================================
-# HEADER
-# ==========================================
 
 header1, header2 = st.columns([1.2, 1])
 
@@ -307,16 +294,10 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# ==========================================
-# MAIN LAYOUT
-# ==========================================
 
 left, right = st.columns([0.9, 1.25], gap="large")
 
 
-# ==========================================
-# INPUT PANEL
-# ==========================================
 
 with left:
 
@@ -394,9 +375,7 @@ with left:
             )
 
 
-# ==========================================
-# PREDICTION
-# ==========================================
+
 
 if predict:
 
@@ -458,9 +437,7 @@ if predict:
         st.error(f"Prediction error: {e}")
 
 
-# ==========================================
-# RESULT PANEL
-# ==========================================
+
 
 with right:
 
@@ -573,9 +550,7 @@ with right:
             st.write("✦ Your submitted information")
 
 
-# ==========================================
-# DISCLAIMER
-# ==========================================
+
 
 st.markdown("---")
 
