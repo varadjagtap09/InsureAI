@@ -38,7 +38,6 @@ The project uses a medical insurance dataset containing information such as:
 - Region
 - Insurance Charges
 
-Dataset source and licence: [Add your original dataset source here.]
 
 ## 🛠️ Technologies Used
 
