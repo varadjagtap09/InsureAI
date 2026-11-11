@@ -6,7 +6,7 @@ The project uses a K-Nearest Neighbors (KNN) Regression algorithm and a Streamli
 
 ## 🚀 Live Demo
 
-[Open InsureAI](https://insureai-mbsl8tymaoswhitjgpbve9.streamlit.app/)
+[Open InsureAI](https://pojogszkhajvmdw2agjlcz.streamlit.app/)
 
 ## 📌 Project Overview
 
