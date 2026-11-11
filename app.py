@@ -1,13 +1,21 @@
 import streamlit as st
 import pandas as pd
 import joblib
+
+
 model = joblib.load("knn_model.pkl")
 scaler = joblib.load("scaler.pkl")
 columns = joblib.load("columns.pkl")
 
+
 st.set_page_config(
     page_title="InsureAI",
+ 
 )
+
+# Currency conversion
+USD_TO_INR = 85.0
+
 
 st.title("InsureAI - Insurance Cost Prediction")
 
@@ -17,7 +25,7 @@ st.write(
 
 st.divider()
 
-# User inputs
+
 st.subheader("Personal Information")
 
 age = st.slider("Select your age", 18, 100, 25)
@@ -57,7 +65,6 @@ st.divider()
 
 if st.button("Predict Insurance Cost"):
 
-    # Convert categorical values
     sex = 0 if gender == "Male" else 1
 
     smoker_value = 1 if smoker == "Yes" else 0
@@ -66,7 +73,7 @@ if st.button("Predict Insurance Cost"):
 
     bmi_category_obese = 1 if bmi > 29.9 else 0
 
-    # Create input dataframe
+    
     input_data = pd.DataFrame([{
         "smoker": smoker_value,
         "region_southeast": region_southeast,
@@ -76,17 +83,23 @@ if st.button("Predict Insurance Cost"):
         "bmi": bmi,
         "children": children
     }])
+
+    
     input_data = input_data[columns]
+
+    
     numerical_cols = ["age", "bmi", "children"]
 
     input_data[numerical_cols] = scaler.transform(
         input_data[numerical_cols]
     )
 
-
+   
     prediction = model.predict(input_data)
 
-    # Display result
+    
+    predicted_cost = prediction[0] * USD_TO_INR
+
     st.success("Prediction Completed!")
 
     st.subheader("Estimated Insurance Cost")
@@ -105,4 +118,3 @@ if st.button("Predict Insurance Cost"):
 st.divider()
 
 st.caption("InsureAI | Built using Python, Streamlit and Machine Learning")
-
