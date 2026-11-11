@@ -52,18 +52,28 @@ Dataset source and licence: [Add your original dataset source here.]
 - Joblib
 - Jupyter Notebook
 
-## 🤖 Machine Learning Model
+🤖 Machine Learning Model
 
-**Algorithm:** K-Nearest Neighbors (KNN) Regression
+Algorithm: K-Nearest Neighbors (KNN) Regression
 
 The model takes selected personal information as input and predicts estimated medical insurance charges.
 
-## 📂 Project Structure
+Saved model files:
 
-```text
+knn_model.pkl – Trained KNN model
+
+scaler.pkl – Feature scaling object
+
+columns.pkl – Model input column order
+
+📂 Project Structure
+
 InsureAI/
 │
 ├── app.py
+├── knn_model.pkl
+├── scaler.pkl
+├── columns.pkl
 ├── requirements.txt
 ├── README.md
 │
@@ -72,8 +82,6 @@ InsureAI/
 │
 └── notebook/
     └── model_training.ipynb
-```
-
 ##
 
 This project is developed for educational purposes and demonstrates the application of Machine Learning.
